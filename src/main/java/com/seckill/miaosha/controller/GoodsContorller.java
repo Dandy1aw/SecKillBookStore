@@ -136,7 +136,7 @@ public class GoodsContorller {
 //    }
 
     /** 页面静态化：商品详情页面
-     * 方法：返回的是一个今天html 页面 + 利用ajax(通过接口)从服务端获取对应数据 + js技术将数据放入html
+     * 方法：返回的是一个静态html 页面 + 利用ajax(通过接口)从服务端获取对应数据 + js技术将数据放入html
      * */
     @RequestMapping(value = "/to_detail/{goodsId}") // 前端传入的参数 goodsId
     @ResponseBody

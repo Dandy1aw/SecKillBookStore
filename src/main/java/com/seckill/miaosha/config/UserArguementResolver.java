@@ -26,12 +26,14 @@ public class UserArguementResolver implements HandlerMethodArgumentResolver {
 
     @Autowired
     private MiaoshaUserService miaoshaUserService;
+
     /* 判断是否是MiaoshaUser 类 */
     @Override
     public boolean supportsParameter(MethodParameter methodParameter) {
         Class<?> clazz = methodParameter.getParameterType();/*获取参数类型*/
         return clazz == MiaoshaUser.class; /* 若是 MiaoshaUser 类 才进行下一步*/
     }
+
     /*具体操作  获取到user 对象的参数 值 */
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer,
@@ -51,8 +53,8 @@ public class UserArguementResolver implements HandlerMethodArgumentResolver {
 //        /*有限从paramToken 中取出 cookie值 若没有从 cookieToken 中取*/
 //        String token = StringUtils.isEmpty(paramToken)?cookieToken:paramToken;
 //        return miaoshaUserService.getByToken(response,token);/*拿到 user 对象*/
-    }
-
+////    }
+////
 //    private String getCookieValue(HttpServletRequest request, String cookieTokenName) {
 //        /*在 请求中 遍历所有的cookie 从中取到 我们需要的那一个cookie 就可以的*/
 //        Cookie[] cookies =  request.getCookies();
@@ -67,4 +69,5 @@ public class UserArguementResolver implements HandlerMethodArgumentResolver {
 //        }
 //        return null;
 //    }
+    }
 }

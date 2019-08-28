@@ -7,11 +7,17 @@ import com.seckill.miaosha.domain.MiaoshaUser;
 public class UserContext {
 
     public static ThreadLocal<MiaoshaUser> userHolder = new ThreadLocal<MiaoshaUser>();
+
     /*定义2个方法，一个存一个取*/
-    public static void setUser(MiaoshaUser user){
+    public static void setUser(MiaoshaUser user) {
         userHolder.set(user);
     }
-    public static MiaoshaUser getUser(){
+
+    public static MiaoshaUser getUser() {
+        String s = "aaa";
+        // s[3] = "1";
         return userHolder.get();
     }
 }
+
+

@@ -80,7 +80,10 @@ function getMiaoshaPath() {
     $.ajax({
         url :"/miaosha/getPath",
         type : "GET",
-        data:{ goodsId :$("#goodsId").val()},
+        data:{
+            goodsId :$("#goodsId").val(),
+            verifyCode : $("#verifyCode").val()
+        },
         success:function(data){
             if (data.code ==0) {//
                 var path = data.data
@@ -211,15 +214,23 @@ function getMiaoshaPath() {
             clearTimeout(timeout);//取消timeout 代码执行
             $("#miaoshaTip").html("秒杀进行中！")//修改其中的内容
             /**加入秒杀数学验证码 功能
+             * 1.一开始图形验证码和输入框都是隐藏的
+             * 2.当秒杀进行的时候，显示验证码和输入框
              * */
-
-
+            $("#verifyCodeImg").attr("src", "/miaosha/verifyCode?goodsId="+$("#goodsId").val());//访问验证码接口
+            $("#verifyCodeImg").show();
+            $("#verifyCode").show();
 
         } else {//秒杀结束
             $("#buyButton").attr("disabled",true);
             $("#miaoshaTip").html("结束！！！")//修改其中的内容
         }
     }
+function refreshVerifyCode() {
+    $("#verifyCodeImg").attr("src", "/miaosha/verifyCode?goodsId="+$("#goodsId").val()+"&timestamp="+new Date().getTime());//访问验证码接口
+    //这里 如果不加timestamp url 不变，重复申请，浏览器会直接取缓存，不重复请求
+    
+}
     // function countDown(){
     //     var remainSeconds = $("#remainSeconds").val();
     //     var timeout;

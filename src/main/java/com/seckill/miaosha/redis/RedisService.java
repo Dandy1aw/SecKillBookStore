@@ -33,7 +33,7 @@ public class RedisService {
          * */
         Jedis jedis = null;
         try {
-            jedis = jedisPool.getResource();/*调用jedisPool 对象的 getResource()方法 难道 jedis （其实就是一个连接）*/
+            jedis = jedisPool.getResource();/*调用jedisPool 对象的 getResource()方法 拿到 jedis （其实就是一个连接）*/
             /* 生成 新的 带有前缀的 Key*/
             String  realKey = prefix.getPrefix() +key;
             /* 通过 jedis get() 方法 通过key 获取到 值*/
@@ -99,7 +99,7 @@ public class RedisService {
      * @param <T>
      * @return
      */
-    public <T> Long incr(BasePrefix prefix, String key, Class<T> clazz)
+    public <T> Long incr(BasePrefix prefix, String key)
     {
         /**1.获取jedis 客户端 是一个连接，用完必须释放掉 close()方法 返回 连接池 而不是关闭
          * */

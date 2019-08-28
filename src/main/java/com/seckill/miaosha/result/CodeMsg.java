@@ -20,6 +20,7 @@ public class CodeMsg {
     public static CodeMsg BIND_ERROR = new CodeMsg(500800,"(绑定异常)参数校验异常：%s"); /*用占位符 传入一个参数*/
     public static CodeMsg SESSION_ERROR = new CodeMsg(500111,"没有SESSION！"); /*用占位符 传入一个参数*/
     public static CodeMsg REQUEST_ERROR = new CodeMsg(500789,"非法请求！"); /*用占位符 传入一个参数*/
+    public static CodeMsg REQUEST_OVER_LIMIT = new CodeMsg(500999,"请求次数过多！"); /*用占位符 传入一个参数*/
 
     /*登陆异常 5002xx*/
     public static CodeMsg LOGIN_ERROR_PASSWORD_EMPTY = new CodeMsg(500201,"密码不能为空");
@@ -31,6 +32,7 @@ public class CodeMsg {
     /*秒杀模块异常 5005xx*/
     public static CodeMsg MIAO_SHA_NO_STOCK = new CodeMsg(500501,"库存不足！");
     public static CodeMsg MIAO_SHA_REPEAT = new CodeMsg(500502,"重复秒杀！");
+    public static CodeMsg MIAO_SHA_VERICODE = new CodeMsg(500580,"验证码非法！");
 
     /*订单模块异常 5003xx*/
     public static CodeMsg ORDER_NOT_EXIST = new CodeMsg(500301,"订单不存在");
